@@ -1,7 +1,6 @@
-import React from 'react';
 import loader from '../loader/img/sp.gif'; 
 
-export default function SPLoader() {
+export default function Loader() {
     return (
         <div style={styles.loaderContainer}>
             <img src={loader} alt="Cargando..." style={styles.loaderImg} />

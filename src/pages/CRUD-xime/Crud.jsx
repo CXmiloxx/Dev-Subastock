@@ -11,7 +11,7 @@ import InsertarMedicamentos from '../InsertarHistoriales/InsertarMedicamentos';
 import BotonVolver from '../../components/UI/BotonVolver';
 import Modal from '../../components/UI/Modal';
 import SPLoader from '../loader/Loader';
-
+import useAuth from '../../contexts/AuthContext'
 function Crud() {
     const [showAlimentacion, setShowAlimentacion] = useState(false);
     const [showVacunacion, setShowVacunacion] = useState(false);
@@ -24,9 +24,11 @@ function Crud() {
     const [raza, setRaza] = useState('');
     const [especie, setEspecie] = useState('');
     const [btnActived, setBtnActived] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(''); 
+    const [selectedOption, setSelectedOption] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { userRole } = useAuth();
+
 
     useEffect(() => {
         const storedMarca = localStorage.getItem('marcaAnimal');
@@ -40,12 +42,14 @@ function Crud() {
         if (storedIdAnimal) setIdAnimal(storedIdAnimal);
     }, []);
 
+
+
     useEffect(() => {
         const fetchAnimalData = async () => {
             if (!idAnimal) return;
 
             try {
-                const response = await fetch(import.meta.env.VITE_API_URL+ `/subasta/AnimalSubastado/${idAnimal}`, {
+                const response = await fetch(import.meta.env.VITE_API_URL + `/subasta/AnimalSubastado/${idAnimal}`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' },
                 });
@@ -95,7 +99,7 @@ function Crud() {
 
             if (result.isConfirmed) {
                 setLoading(true);
-                const response = await fetch(import.meta.env.VITE_API_URL+`/animal/Eliminar/${idAnimal}`, {
+                const response = await fetch(import.meta.env.VITE_API_URL + `/animal/Eliminar/${idAnimal}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -155,23 +159,36 @@ function Crud() {
                             <div className={styles.cell}>Especie</div>
                             <div className={styles.cell}>Raza</div>
                             <div className={styles.cell}>Marca</div>
-                            <div className={styles.cell}>Estado</div>
+                            <div className={styles.cell}>
+                                {userRole ? (
+                                    null
+                                ) : (
+                                    <span>
+                                        estado
+                                    </span>
+                                )}
+                            </div>
                         </div>
                         <div className={styles.row}>
                             <div className={styles.cell2}>{especie}</div>
                             <div className={styles.cell2}>{raza}</div>
                             <div className={styles.cell2}>{marca || 'No disponible'}</div>
                             <div className={styles.cell2}>
-                                {btnActived ? (
-                                    <span>Animal ya subastado</span>
+                                {userRole ? (
+                                    null
                                 ) : (
-                                    <Link to={`/subastar/${idAnimal}`}>
-                                        <button className={styles.buttonInicioCrud}>
-                                            Iniciar Subasta
-                                        </button>
-                                    </Link>
+                                    btnActived ? (
+                                        <span>Animal ya subastado</span>
+                                    ) : (
+                                        <Link to={`/subastar/${idAnimal}`}>
+                                            <button className={styles.buttonInicioCrud}>
+                                                Iniciar Subasta
+                                            </button>
+                                        </Link>
+                                    )
                                 )}
                             </div>
+
                         </div>
                     </div>
                     <div className={styles.menuCrud}>

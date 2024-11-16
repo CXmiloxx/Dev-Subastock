@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState(null);
+  const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -32,8 +33,7 @@ export const AuthProvider = ({ children }) => {
   async function verifyToken() {
     try {
       const request = await fetch(
-        // import.meta.env.VITE_API_URL + 
-        "http://localhost:8000/token/Verificar",
+        import.meta.env.VITE_API_URL + "/token/Verificar",
         {
           method: "POST",
           headers: {
@@ -67,17 +67,25 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("auth_token");
     }
   }
+  
 
   function addToken(token) {
-    token.startsWith("Bearer ")
-      ? localStorage.setItem("auth_token", token)
-      : localStorage.setItem("auth_token", `Bearer ${token}`);
+    if (token && typeof token === 'string') {
+      token.startsWith("Bearer ")
+        ? localStorage.setItem("auth_token", token)
+        : localStorage.setItem("auth_token", `Bearer ${token}`);
+    } else {
+      console.error("Token inválido:", token);
+    }
   }
+  
 
-  function login(token) {
+  function login(token,role) {
     addToken(token);
+    setUserRole(role);
     setIsLogged(true);
   }
+
 
   function logout() {
     removeToken();
@@ -91,6 +99,7 @@ export const AuthProvider = ({ children }) => {
         isLogged,
         isLoading,
         login,
+        userRole,
         logout,
         getToken,
         addToken,

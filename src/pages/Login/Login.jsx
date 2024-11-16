@@ -27,8 +27,7 @@ const Login = () => {
     contraseña: "",
   });
 
-  const { login: contextLogin } = useAuth();
-
+  const { login: contextLogin} = useAuth();
   const iniciarSesion = async () => {
     try {
       const response = await fetch(
@@ -47,9 +46,11 @@ const Login = () => {
       }
 
       const data = await response.json();
-      console.log(values);
-      if (data.status) {
-        contextLogin(data.data.token);
+      const rolUser = data.data ? true : false;
+
+      if (data.status && data.token) {
+
+        contextLogin(data.token, rolUser);
         Swal.fire({
           title: "Correcto!",
           text: "Inicio de sesión exitoso",

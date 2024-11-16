@@ -1,0 +1,74 @@
+/* Contenedor general */
+.containerRegistro {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.containerRegistro h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Formulario */
+.formRegistro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Grupo de entrada */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Botón */
+.botonRegistrar {
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botonRegistrar:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .containerRegistro {
+        padding: 15px;
+    }
+}

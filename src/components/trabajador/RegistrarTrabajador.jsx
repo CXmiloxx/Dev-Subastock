@@ -1,86 +1,84 @@
 import { useState } from "react";
+import styles from "./styles/RegistrarTrabajador.module.css";
+
 export default function RegistrarTrabajador() {
-    const [nombres, setNombres] = useState('');
-    const [apellidos, setApellidos] = useState('');
-    const [rol, setRol] = useState('');
+    const [values, setValues] = useState({
+        nombres: '',
+        apellidos: '',
+        rol: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues({ ...values, [name]: value });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!nombres || !apellidos || !rol) {
-            alert('Por favor, completa todos los campos');
-            return;
-        }
-
-        const datosTrabajador = {
-            nombres,
-            apellidos,
-            rol,
-        };
         const idUsuario = localStorage.getItem('idUsuario');
-        if(idUsuario){
-        try {
-            const response = await fetch( import.meta.env.VITE_API_URL + `/trabajador/Insertar/${idUsuario}`,{
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(datosTrabajador),
-            });
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            console.log(data);
-            
-            if (data.status) {
-                alert('Trabajador registrado correctamente');
-                setNombres('');
-                setApellidos('');
-                setRol('');
-            }else{
-                alert('Hubo un error al registrar el trabajador' . data.message);
+        if (idUsuario) {
+            try {
+                const response = await fetch(import.meta.env.VITE_API_URL + `/trabajador/Insertar/${idUsuario}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(values),
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log(data);
 
+                if (data.status) {
+                    alert('Trabajador registrado correctamente');
+                    setValues({ nombres: '', apellidos: '', rol: '' });
+                } else {
+                    alert('Hubo un error al registrar el trabajador: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error al registrar al trabajador:', error);
             }
-        } catch (error) {
-            console.error('Error al registrar al trabajador:', error);
+        } else {
+            alert('Debes estar logueado para registrar un trabajador');
         }
-    }else{
-        alert('Debes estar logueado para registrar un trabajador');
-    
-    }
     };
 
     return (
-        <div>
+        <div className={styles.containerRegistro}>
             <h2>Registrar Trabajador</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form className={styles.formRegistro} onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
                     <label htmlFor="nombres">Nombre</label>
                     <input
                         type="text"
                         id="nombres"
-                        value={nombres}
-                        onChange={(e) => setNombres(e.target.value)}
+                        name="nombres"
+                        value={values.nombres}
+                        onChange={handleChange}
                         required
                     />
                 </div>
 
-                <div>
+                <div className={styles.formGroup}>
                     <label htmlFor="apellidos">Apellido</label>
                     <input
                         type="text"
                         id="apellidos"
-                        value={apellidos}
-                        onChange={(e) => setApellidos(e.target.value)}
+                        name="apellidos"
+                        value={values.apellidos}
+                        onChange={handleChange}
                         required
                     />
                 </div>
 
-                <div>
+                <div className={styles.formGroup}>
                     <label htmlFor="rol">Rol</label>
                     <select
                         id="rol"
-                        value={rol}
-                        onChange={(e) => setRol(e.target.value)}
+                        name="rol"
+                        value={values.rol}
+                        onChange={handleChange}
                         required
                     >
                         <option value="">Selecciona un rol</option>
@@ -89,7 +87,9 @@ export default function RegistrarTrabajador() {
                     </select>
                 </div>
 
-                <button type="submit">Registrar</button>
+                <button type="submit" className={styles.botonRegistrar}>
+                    Registrar
+                </button>
             </form>
         </div>
     );

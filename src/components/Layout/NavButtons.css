@@ -1,0 +1,32 @@
+#nav-options {
+  font-size: 0.9em;
+}
+
+#nav-options a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#nav-options a span {
+  color: #000000;
+}
+
+#nav-options a svg {
+  color: var(--primary-color);
+}
+
+#nav-options a:hover svg {
+  animation: bell 0.5s infinite;
+}
+
+@keyframes bell {
+  0% {
+    transform: rotate(0deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

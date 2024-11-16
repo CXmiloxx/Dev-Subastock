@@ -1,0 +1,111 @@
+.loginContainer {
+  display: flex;
+  height: 100vh;
+  background-image: url("../Login/img/img_principal.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.contentContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5%; 
+}
+
+.formContainer {
+  flex: 0.23; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgb(4, 48, 0);
+}
+
+.loginForm {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nombreInput {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.inputField:focus {
+  border-color: #139713;
+  box-shadow: 0 0 5px #026502;
+  outline: none;
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 12px;
+  background-color: #139713;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btnLogin:hover {
+  background-color: #087a08;
+}
+
+.registrarse {
+  text-align: center;
+  margin-top: 20px;
+  color: #0b6d0b;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.registrarse:hover {
+  color: #25c725;
+  cursor: pointer;
+}
+
+.textDecorationNone {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .formContainer {
+    width: 100%;
+    align-items: center;
+  }
+
+  .centeredTitle {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .centeredTitle {
+    font-size: 18px;
+  }
+}

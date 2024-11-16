@@ -1,0 +1,24 @@
+#main-layout {
+  --primary-color: #237e0d;
+  --bg-color: #ffffff;
+  box-sizing: border-box;
+  --header-height: 55px;
+}
+
+#main-app {
+  margin-top: calc(var(--header-height));
+}
+
+#backdrop {
+  transition: all 0.3s;
+}
+
+.backdrop-show {
+  z-index: 10000;
+  opacity: 1;
+}
+
+.backdrop-hide {
+  z-index: -10000;
+  opacity: 0;
+}

@@ -1,0 +1,90 @@
+.formContainerDiv {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.cowContainerImg {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.cowIcon {
+  width: 80px;
+  height: 80px;
+}
+
+.inputContainerAlimento {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.textInput,
+.selectInput {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+.textInput::placeholder {
+  color: #aaa;
+}
+
+.submitButton {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 600px) {
+  .formContainerDiv {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .cowIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .submitButton {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+  }
+}

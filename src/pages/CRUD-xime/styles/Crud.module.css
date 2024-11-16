@@ -1,0 +1,121 @@
+.crudApp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 91.4vh;
+    background-image: url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.content {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerCrud {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cell {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.cell2 {
+    flex: 1;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.menuCrud {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.menuCrudButton {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menuCrudButton:hover {
+    background-color: #21a348;
+    transform: scale(1.05);
+}
+
+.dropdown select {
+    padding: 8px 12px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.footerButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.deleteButton {
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .headerCrud {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menuCrud {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menuCrudButton {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

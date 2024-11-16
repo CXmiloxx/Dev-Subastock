@@ -1,0 +1,342 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+button {
+  border: none;
+  color: #000000;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.carruselInfoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.carouselContainer {
+  width: 55%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  background-color: #fff;
+  
+}
+
+.carouselContainer img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+  border-radius: 20px;
+}
+
+.infoContainer {
+  flex: 1;
+  width: 45%;
+  height: 500px;
+  padding: 20px;
+  background-color: #fff;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.titulo {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 16px 12px;
+  text-transform: uppercase;
+}
+
+.tiempoRestante {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  align-self: center;
+  padding: 10px;
+}
+
+.fechas {
+  margin: 16px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fechas span{
+  font-size: 18px;
+  color: #000000;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 10px   ;
+}
+
+.ofertaActual {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color:  var(--primary-color);
+}
+
+.descripcion {
+  font-size: 16px;
+  color: #050505;
+  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pujaContainer {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.inputPuja {
+  padding: 8px;
+  font-size: 17px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+.pujar {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  margin-left: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+.pujar:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+}
+
+.historialPujas {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: 0.3s ease;
+}
+
+.historialPujas:hover {
+  background-color: darkgreen;
+}
+
+.contenedorHistorial {
+  background-color: white;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary-color);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+
+.historialContainer {
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.historialHeader {
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.cargando {
+  text-align: center;
+  color: #888;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+
+.historialTable {
+  background-color: #ffffff; 
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.historialTable th,
+.historialTable td {
+  padding: 12px;
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+.historialTable td,
+.historialTable th {
+  text-align: center;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .infoContainer {
+    margin-left: 15px;
+    width: 50%;
+    height: 525px;
+  }
+  .carouselContainer{
+    width: 50%;
+    height: 525px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 989.99999px) {
+  .body {
+    max-width: none;
+  }
+  .carruselInfoContainer {
+    flex-direction: row;
+  }
+  .infoContainer {
+    margin-left: 15px;
+    width: 50%;
+    height: 525px;
+  }
+  .carouselContainer{
+    width: 50%;
+    height: 525px;
+  }
+  .titulo {
+    font-size: 20px;
+  }
+  
+  .tiempoRestante {
+    font-size: 14px;
+  }
+  
+  .fechas {
+    margin: 16px;
+    padding-bottom: 10px;
+  }
+  
+  .fechas span{
+    font-size: 14px;
+  }
+  
+  .ofertaActual {
+    font-size: 20px;
+  }
+  
+  .descripcion {
+    font-size: 14px;
+  }
+  
+  .pujaContainer {
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+  .inputPuja {
+    padding: 4px;
+    font-size: 14px;
+  }
+  
+  .pujar {
+    padding: 10px 10px;
+    margin-left: 8px;
+    font-size: 14px;
+  }
+
+  .historialPujas {
+    font-size: 14px;
+    margin: 5 auto;
+    padding: 8px 10px;
+  }
+  
+}
+
+@media screen and (max-width: 767.9999999px) {
+  .carruselInfoContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .carouselContainer img {
+    width: 100%;
+    height: 400px;
+    padding: 0px;
+    margin: 0px;
+  }
+  .carouselContainer {
+    padding: 0px;
+    margin: 0px;
+    width: 80%;
+    height: 400px;
+  }
+
+  .infoContainer{
+    width: 80%;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .carruselInfoContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .carouselContainer {
+    width: 95%;
+    height: auto;
+  }
+  .infoContainer {
+    width: 95%;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,31 @@
+
+  
+  .resultadosBusqueda {
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .resultadoItem {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+  }
+  
+  .resultadoItem:hover {
+    background-color: #f7f7f7;
+  }
+
+  .resultadoItemLink {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  

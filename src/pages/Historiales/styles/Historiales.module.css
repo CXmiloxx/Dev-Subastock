@@ -1,0 +1,114 @@
+.historialContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; 
+}
+
+.historialTitle {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.historialTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.historialTable thead tr {
+    background-color: #009879;
+    color: white;
+    font-weight: bold;
+}
+
+.historialTable th,
+.historialTable td {
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.historialTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s;
+}
+
+.historialTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.historialTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.historialTable tbody tr:last-of-type {
+    border-bottom: 2px solid #28a745;
+}
+
+.noData {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    padding: 15px;
+}
+
+.btnEliminar {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btnEliminar:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .historialContainer {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .historialTitle {
+        font-size: 22px;
+    }
+
+    .historialTable th,
+    .historialTable td {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .btnEliminar {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .historialTitle {
+        font-size: 18px;
+    }
+
+    .historialTable {
+        font-size: 14px;
+    }
+
+    .btnEliminar {
+        width: 100%; 
+        padding: 8px;
+    }
+}

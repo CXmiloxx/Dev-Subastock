@@ -29,9 +29,7 @@ const RegistroAnimales = () => {
       const idUsuario = localStorage.getItem('idUsuario');
       if (idUsuario) {
         fetch(
-          // import.meta.env.VITE_API_URL + `/animal/Insertar/${idUsuario}`
-          `http://localhost:8000/animal/Insertar/${idUsuario}`
-          , {
+          import.meta.env.VITE_API_URL + `/animal/Insertar/${idUsuario}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

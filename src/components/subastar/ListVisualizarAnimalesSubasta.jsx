@@ -36,7 +36,7 @@ export default function ListVisualizarAnimalesSubasta() {
                     if (!subastaResponse.ok) throw new Error(`Error en subasta: ${subastaResponse.status}`);
                     const subastaData = await subastaResponse.json();
                     const subastasActivas = subastaData.status
-                        ? subastaData.subastas.map((subasta) => subasta.idAnimal)
+                        ? subastaData.data.subastas.map((subasta) => subasta.idAnimal)
                         : [];
 
                     const animalResponse = await fetch(import.meta.env.VITE_API_URL + `/animal/Obtener/${idUsuario}`,
@@ -50,7 +50,7 @@ export default function ListVisualizarAnimalesSubasta() {
                     const animalData = await animalResponse.json();
 
                     const animalesDisponibles = animalData.status
-                        ? animalData.animal.filter((animal) => !subastasActivas.includes(animal.idAnimal))
+                        ? animalData.data.animal.filter((animal) => !subastasActivas.includes(animal.idAnimal))
                         : [];
 
                     setAnimales(animalesDisponibles);
